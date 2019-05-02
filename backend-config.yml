@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config
+  namespace: hsm
+data:
+  ENV: 'production'
+  SECRET: '=%bfnd7ae3cedtria=aak@jx*_v*h+^+5emr%c+nl)^0x(6$cw'
+  DB_HOST: 'postgres'
+  DB_PASSWORD: 'dyzQagmwu4WJzjvn6DMPsu'

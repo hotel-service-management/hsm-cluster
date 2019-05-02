@@ -1,0 +1,33 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: hsm-ingress
+  namespace: hsm
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    certmanager.k8s.io/cluster-issuer: letsencrypt-prod
+spec:
+  tls:
+    - hosts:
+        - hsm.wiput.me
+      secretName: cert-hsm
+  rules:
+    - host: hsm.wiput.me
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: hsm-frontend
+              servicePort: 80
+          - path: /api
+            backend:
+              serviceName: hsm-backend
+              servicePort: 8000
+          - path: /static
+            backend:
+              serviceName: hsm-static
+              servicePort: 80
+          - path: /admin
+            backend:
+              serviceName: hsm-backend
+              servicePort: 8000
