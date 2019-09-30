@@ -15,7 +15,7 @@ metadata:
   labels:
     app: postgres
 spec:
-  storageClassName: ase-1a-ssd
+  storageClassName: ase-1b-ssd
   accessModes:
     - ReadWriteOnce
   resources:
@@ -68,10 +68,10 @@ spec:
               subPath: data
           resources:
             requests:
-              cpu: 500m
+              cpu: 250m
               memory: 500Mi
             limits:
-              memory: 4Gi
+              memory: 1Gi
       volumes:
         - name: data
           persistentVolumeClaim:

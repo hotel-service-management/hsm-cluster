@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
         - name: hsm-static
-          image: gcr.io/kmitl-hsm/hsm-static:latest
+          image: gcr.io/wiput-p/hsm-static:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 80

@@ -10,7 +10,7 @@ spec:
   acme:
     config:
       - http01:
-          ingressClass: gce
+          ingressClass: nginx
         domains:
           - hsm.wiput.me
   issuerRef:

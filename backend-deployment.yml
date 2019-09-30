@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
         - name: hsm-backend
-          image: gcr.io/kmitl-hsm/hsm-backend:latest
+          image: gcr.io/wiput-p/hsm-backend:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8000
