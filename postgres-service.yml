@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: postgres
+  name: postgres
+  namespace: hsm
+spec:
+  externalName: hsm-database.cluster-c2ipmeztt3dl.ap-southeast-1.rds.amazonaws.com
+  selector:
+    app: postgres
+  type: ExternalName
+status:
+  loadBalancer: {}

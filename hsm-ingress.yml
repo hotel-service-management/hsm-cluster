@@ -4,13 +4,10 @@ metadata:
   name: hsm-ingress
   namespace: hsm
   annotations:
-    kubernetes.io/ingress.class: nginx
-    certmanager.k8s.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
 spec:
-  tls:
-    - hosts:
-        - hsm.wiput.me
-      secretName: cert-hsm
   rules:
     - host: hsm.wiput.me
       http:
@@ -19,15 +16,35 @@ spec:
             backend:
               serviceName: hsm-frontend
               servicePort: 80
-          - path: /api
+          - path: /favicon.ico
+            backend:
+              serviceName: hsm-frontend
+              servicePort: 80
+          - path: /js*
+            backend:
+              serviceName: hsm-frontend
+              servicePort: 80
+          - path: /css*
+            backend:
+              serviceName: hsm-frontend
+              servicePort: 80
+          - path: /fonts*
+            backend:
+              serviceName: hsm-frontend
+              servicePort: 80
+          - path: /img*
+            backend:
+              serviceName: hsm-frontend
+              servicePort: 80
+          - path: /api*
             backend:
               serviceName: hsm-backend
               servicePort: 8000
-          - path: /static
+          - path: /static*
             backend:
               serviceName: hsm-static
               servicePort: 80
-          - path: /admin
+          - path: /admin*
             backend:
               serviceName: hsm-backend
               servicePort: 8000

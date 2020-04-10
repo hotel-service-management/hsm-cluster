@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
         - name: hsm-frontend
-          image: gcr.io/wiput-p/hsm-frontend
+          image: 361698339280.dkr.ecr.ap-southeast-1.amazonaws.com/hsm-frontend
           imagePullPolicy: Always
           ports:
             - containerPort: 80
